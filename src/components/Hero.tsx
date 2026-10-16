@@ -1,169 +1,215 @@
 "use client";
 
-import { motion, Variants } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
 import Image from "next/image";
-import { ArrowRight, Download } from "lucide-react";
-
-/* ------------------ Animation Variants ------------------ */
+import { ArrowRight, Download, Terminal, Sparkles } from "lucide-react";
 
 const containerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.1,
-      delayChildren: 0.2,
+      staggerChildren: 0.12,
+      delayChildren: 0.15,
     },
   },
 };
 
 const itemVariants: Variants = {
-  hidden: { opacity: 0, y: 20 },
+  hidden: { opacity: 0, y: 22 },
   visible: {
     opacity: 1,
     y: 0,
     transition: {
-      duration: 0.5,
+      duration: 0.55,
       ease: "easeOut",
     },
   },
 };
 
-/* ------------------ Hero Component ------------------ */
+const technologies = [
+  "TypeScript",
+  "Next.js",
+  "NestJS",
+  "Express.js",
+  "MongoDB",
+  "PostgreSQL",
+  "Kafka",
+  "DevOps",
+  "LangChain",
+  "LangGraph",
+  "LangSmith",
+  "RAG",
+];
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center bg-black text-white overflow-hidden selection:bg-white/20 pt-28 sm:pt-32 lg:pt-0 pb-10 sm:pb-14 lg:pb-0">
+    <section
+      id="home"
+      className="relative flex min-h-screen items-center overflow-hidden bg-black pb-12 pt-28 text-white selection:bg-white/20 sm:pt-32 lg:pb-0 lg:pt-20"
+    >
+      {/* Background grid */}
+      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:32px_32px]" />
 
-      {/* ------------------ Background FX ------------------ */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]" />
-      <div className="absolute top-0 left-0 right-0 h-[500px] bg-gradient-to-b from-blue-900/20 via-black/0 to-black/0 blur-[100px]" />
+      {/* Ambient lighting */}
+      <div className="pointer-events-none absolute -top-40 left-1/4 h-[450px] w-[450px] rounded-full bg-blue-500/[0.08] blur-[140px]" />
+      <div className="pointer-events-none absolute bottom-0 right-0 h-[350px] w-[350px] rounded-full bg-violet-500/[0.07] blur-[120px]" />
 
-      <div className="relative max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 w-full">
+      <div className="relative mx-auto w-full max-w-7xl px-6 sm:px-8 lg:px-12">
         <motion.div
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          className="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center"
+          className="grid items-center gap-14 lg:grid-cols-[1.15fr_0.85fr] lg:gap-10"
         >
-          {/* ------------------ LEFT CONTENT ------------------ */}
-          <div className="flex flex-col items-center lg:items-start text-center lg:text-left order-2 lg:order-1">
+          {/* Left content */}
+          <div className="order-2 flex flex-col items-center text-center lg:order-1 lg:items-start lg:text-left">
+            <motion.div
+              variants={itemVariants}
+              className="mb-7 inline-flex items-center gap-2 rounded-full border border-zinc-800 bg-zinc-950/80 px-4 py-2 text-xs font-medium text-zinc-300 sm:text-sm"
+            >
+              <span className="relative flex h-2 w-2">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-50" />
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400" />
+              </span>
+              Full-Stack Engineer · DevOps · GenAI
+            </motion.div>
+
             <motion.h1
               variants={itemVariants}
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6 leading-[1.1]"
+              className="mb-6 text-4xl font-bold leading-[1.12] tracking-tight sm:text-5xl md:text-6xl lg:text-7xl"
             >
-              Building reliable, <br />
-              <span className="bg-gradient-to-r from-gray-200 via-gray-400 to-gray-600 bg-clip-text text-transparent">
-                web systems.
+              Engineering
+              <br />
+              <span className="bg-gradient-to-r from-white via-zinc-300 to-zinc-600 bg-clip-text text-transparent">
+                systems that scale.
               </span>
             </motion.h1>
 
             <motion.p
               variants={itemVariants}
-              className="text-base sm:text-lg text-gray-400 max-w-xl mb-8 leading-relaxed"
+              className="mb-8 max-w-2xl text-base leading-8 text-zinc-400 sm:text-lg"
             >
-              I’m <strong className="text-white">Satyam Kumar</strong>, a full-stack
-              engineer building scalable web and backend systems with{" "}
-              <span className="text-white">Typescript</span>,{" "}
-              <span className="text-white">Next.js</span>, <span className="text-white">Golang</span>, and{" "}
-              <span className="text-white">MERN</span>. I ship production-ready
-              platforms using <span className="text-white">DevOps</span> and work
-              on <span className="text-white">Web3</span> &{" "}
-              <span className="text-white">GenAI</span>.
+              I’m{" "}
+              <strong className="font-semibold text-white">Satyam Kumar</strong>
+              , a TypeScript-focused engineer building scalable web
+              applications, distributed backend systems, and AI-powered
+              products. From{" "}
+              <span className="text-zinc-200">Next.js and NestJS</span> to
+              Kafka, cloud infrastructure, and{" "}
+              <span className="text-zinc-200">
+                agentic AI, LangGraph, and RAG
+              </span>
+              , I work across the entire development lifecycle.
             </motion.p>
 
+            {/* Primary actions */}
             <motion.div
               variants={itemVariants}
-              className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto"
+              className="mb-10 flex w-full flex-col items-center gap-4 sm:w-auto sm:flex-row"
             >
               <a
                 href="#projects"
-                className="group inline-flex items-center justify-center w-full sm:w-auto px-8 py-3.5 text-sm font-semibold text-black bg-white rounded-md transition active:scale-95 hover:bg-gray-100"
+                className="group inline-flex w-full items-center justify-center rounded-lg bg-white px-7 py-3.5 text-sm font-semibold text-black transition duration-300 hover:bg-zinc-200 active:scale-95 sm:w-auto"
               >
-                View Selected Work
-                <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                Explore My Projects
+                <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
               </a>
 
               <a
                 href="/resume.pdf"
                 download
-                className="inline-flex items-center justify-center w-full sm:w-auto px-8 py-3.5 text-sm font-semibold text-white border border-gray-800 rounded-md hover:bg-gray-900 hover:border-gray-600 transition active:scale-95"
+                className="inline-flex w-full items-center justify-center rounded-lg border border-zinc-800 bg-zinc-950/50 px-7 py-3.5 text-sm font-semibold text-zinc-200 transition duration-300 hover:border-zinc-600 hover:bg-zinc-900 active:scale-95 sm:w-auto"
               >
-                <Download className="w-4 h-4 mr-2" />
-                Resume
+                <Download className="mr-2 h-4 w-4" />
+                Download Resume
               </a>
+            </motion.div>
+
+            {/* Specializations */}
+            <motion.div
+              variants={itemVariants}
+              className="flex flex-wrap justify-center gap-x-6 gap-y-3 text-xs text-zinc-500 sm:text-sm lg:justify-start"
+            >
+              <span className="flex items-center gap-2">
+                <Terminal className="h-4 w-4 text-zinc-300" />
+                Backend & Distributed Systems
+              </span>
+              <span className="flex items-center gap-2">
+                <Sparkles className="h-4 w-4 text-zinc-300" />
+                GenAI & AI Agents
+              </span>
             </motion.div>
           </div>
 
-          {/* ------------------ RIGHT IMAGE ------------------ */}
- <motion.div
-  variants={itemVariants}
-  initial={{ opacity: 0, y: 36 }}
-  animate={{ opacity: 1, y: 0 }}
-  transition={{ duration: 0.9, ease: "easeOut" }}
-  className="relative flex justify-center lg:justify-end order-1 lg:order-2 mb-12 lg:mb-0"
->
-  <div className="relative w-60 h-60 sm:w-72 sm:h-72 md:w-96 md:h-96 group">
+          {/* Right profile card */}
+          <motion.div
+            variants={itemVariants}
+            className="order-1 flex justify-center lg:order-2 lg:justify-end"
+          >
+            <div className="group relative w-full max-w-[390px]">
+              {/* Glow */}
+              <div className="absolute -inset-4 rounded-3xl bg-gradient-to-br from-blue-500/15 via-transparent to-violet-500/15 opacity-70 blur-2xl transition duration-700 group-hover:opacity-100" />
 
-    {/* Dim ambient glow (always visible) */}
-    <div
-      className="absolute -inset-8 rounded-full
-                 bg-gradient-to-tr from-blue-500/10 to-purple-500/10
-                 blur-3xl opacity-60"
-    />
+              <motion.div
+                whileHover={{ y: -5 }}
+                transition={{ duration: 0.35, ease: "easeOut" }}
+                className="relative overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-950 shadow-2xl shadow-black/50"
+              >
+                {/* Profile image */}
+                <div className="relative aspect-[4/4.5] overflow-hidden">
+                  <Image
+                    src="/p.png"
+                    alt="Satyam Kumar - Full-Stack Engineer, DevOps and GenAI"
+                    fill
+                    priority
+                    sizes="(max-width: 640px) 85vw, (max-width: 1024px) 390px, 390px"
+                    className="object-cover opacity-90 transition duration-700 group-hover:scale-105"
+                  />
 
-    {/* Card */}
-    <motion.div
-      whileHover={{ scale: 1.025 }}
-      transition={{ duration: 0.35, ease: "easeOut" }}
-      className="relative w-full h-full rounded-md overflow-hidden
-                 bg-neutral-900/90 backdrop-blur-md
-                 border border-neutral-800
-                 shadow-[0_18px_45px_rgba(0,0,0,0.55)]"
-    >
-      {/* Image */}
-      <Image
-        src="/p.png"
-        alt="Satyam Kumar"
-        fill
-        priority
-        className="object-cover opacity-95
-                   transition duration-700
-                   group-hover:scale-105"
-      />
+                  <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-black" />
 
-      {/* Soft top highlight */}
-      <div className="absolute inset-0 bg-gradient-to-b from-white/5 via-transparent to-transparent pointer-events-none" />
+                  {/* Identity */}
+                  <div className="absolute inset-x-0 bottom-0 p-6">
+                    <p className="mb-1 text-xs font-medium uppercase tracking-[0.25em] text-zinc-400">
+                      Developer Portfolio
+                    </p>
+                    <h2 className="text-2xl font-semibold tracking-tight">
+                      Satyam Kumar
+                    </h2>
+                    <p className="mt-1 text-sm text-zinc-400">
+                      Full-Stack · DevOps · Generative AI
+                    </p>
+                  </div>
+                </div>
 
-      {/* Bottom fade */}
-      <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-black/85 to-transparent" />
+                {/* Stack panel */}
+                <div className="border-t border-zinc-800 p-5">
+                  <div className="mb-3 flex items-center justify-between">
+                    <span className="text-xs font-medium uppercase tracking-widest text-zinc-400">
+                      Core Technologies
+                    </span>
+                    <span className="text-xs text-zinc-600">
+                      TypeScript-first
+                    </span>
+                  </div>
 
-      {/* Tech stack */}
-      <div className="absolute bottom-3 left-0 right-0 px-4">
-        <div className="flex flex-wrap justify-center gap-2">
-          {["RUST", "MERN", "K8s", "Next.js", "Web3", "GenAI"].map((tech) => (
-            <span
-              key={tech}
-              className="rounded-full px-3 py-1
-                         text-[10px] sm:text-xs
-                         bg-black/40 backdrop-blur
-                         text-neutral-300
-                         border border-neutral-700/70"
-            >
-              {tech}
-            </span>
-          ))}
-        </div>
-      </div>
-    </motion.div>
-  </div>
-</motion.div>
-
-
-
+                  <div className="flex flex-wrap gap-2">
+                    {technologies.map((tech) => (
+                      <span
+                        key={tech}
+                        className="rounded-md border border-zinc-800 bg-zinc-900/80 px-2.5 py-1.5 text-[11px] font-medium text-zinc-300 transition-colors hover:border-zinc-600 hover:text-white sm:text-xs"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+          </motion.div>
         </motion.div>
       </div>
     </section>
   );
 }
-

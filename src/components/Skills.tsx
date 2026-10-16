@@ -1,72 +1,80 @@
 "use client";
 
 import { motion, Variants } from "framer-motion";
-import {
-  Code2,
-  Layout,
-  Server,
-  Database,
-  Cloud,
-  Cpu,
-} from "lucide-react";
+import { Code2, Layout, Server, Database, Cloud, Cpu } from "lucide-react";
 
 /* -------------------------------------------------------------------------- */
 /*                                    DATA                                    */
 /* -------------------------------------------------------------------------- */
-
 const skillGroups = [
   {
     title: "Languages",
     accent: "from-blue-400/30 via-blue-500/10 to-transparent",
     color: "text-blue-400",
     icon: <Code2 className="w-5 h-5" />,
-    skills: [ "TypeScript", "JavaScript", "Rust", "Python", "C++","java", "Golang"],
+    skills: ["TypeScript", "JavaScript", "Python"],
   },
   {
     title: "Frontend",
     accent: "from-purple-400/30 via-purple-500/10 to-transparent",
     color: "text-purple-400",
     icon: <Layout className="w-5 h-5" />,
-    skills: ["Next.js", "React", "Tailwind CSS", "shadcn"],
+    skills: ["Next.js", "React", "Tailwind CSS", "shadcn/ui"],
   },
   {
-    title: "Backend",
+    title: "Backend & APIs",
     accent: "from-emerald-400/30 via-emerald-500/10 to-transparent",
     color: "text-emerald-400",
     icon: <Server className="w-5 h-5" />,
-    skills: ["Node.js","Golang","Rust", "Express", "Rabbit MQ","Kafka", "tRPC"],
+    skills: [
+      "Node.js",
+      "NestJS",
+      "Express.js",
+      "REST APIs",
+      "Microservices",
+      "Apache Kafka",
+    ],
   },
   {
-    title: "Databases",
+    title: "Databases & ORM",
     accent: "from-amber-400/30 via-amber-500/10 to-transparent",
     color: "text-amber-400",
     icon: <Database className="w-5 h-5" />,
     skills: ["MongoDB", "PostgreSQL", "Prisma", "Drizzle ORM", "Redis"],
   },
   {
-    title: "DevOps & Cloud",
+    title: "DevOps & Infrastructure",
     accent: "from-sky-400/30 via-sky-500/10 to-transparent",
     color: "text-sky-400",
     icon: <Cloud className="w-5 h-5" />,
-    skills: ["Docker", "Kubernetes", "Terraform", "AWS", "CI/CD", "Jenkins", "Nginx"],
+    skills: [
+      "Docker",
+      "Kubernetes",
+      "AWS",
+      "Terraform",
+      "CI/CD",
+      "Jenkins",
+      "Nginx",
+      "Linux",
+    ],
   },
   {
-    title: "Web3 & AI",
+    title: "Generative AI & Agents",
     accent: "from-rose-400/30 via-rose-500/10 to-transparent",
     color: "text-rose-400",
     icon: <Cpu className="w-5 h-5" />,
     skills: [
-      "solana",
-      "Smart Contracts",
       "LangChain",
       "LangGraph",
+      "LangSmith",
+      "RAG",
+      "AI Agents",
       "MCP",
       "OpenAI API",
-      "Vector DB",
+      "Vector Databases",
     ],
   },
 ];
-
 /* -------------------------------------------------------------------------- */
 /*                                 ANIMATION                                  */
 /* -------------------------------------------------------------------------- */
@@ -117,7 +125,8 @@ export default function Skills() {
           </span>
 
           <h2 className="text-5xl md:text-6xl font-medium tracking-tight text-white mb-6">
-            Engineering <span className="italic font-serif text-zinc-500">Toolkit</span>
+            Engineering{" "}
+            <span className="italic font-serif text-zinc-500">Toolkit</span>
           </h2>
 
           <p className="max-w-2xl mx-auto text-lg text-zinc-400 leading-relaxed">

@@ -2,7 +2,15 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Mail, Phone, Send, Copy, Check, Loader2, Sparkles } from "lucide-react";
+import {
+  Mail,
+  Phone,
+  Send,
+  Copy,
+  Check,
+  Loader2,
+  Sparkles,
+} from "lucide-react";
 
 export default function Contact() {
   // State for form fields
@@ -14,7 +22,9 @@ export default function Contact() {
 
   // State for submission status
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submissionStatus, setSubmissionStatus] = useState<"idle" | "success" | "error">("idle");
+  const [submissionStatus, setSubmissionStatus] = useState<
+    "idle" | "success" | "error"
+  >("idle");
 
   // State for copy feedback
   const [copied, setCopied] = useState<string | null>(null);
@@ -49,7 +59,7 @@ export default function Contact() {
 
     const formPayload = new FormData();
     // REPLACE WITH YOUR ACTUAL ACCESS KEY FROM WEB3FORMS
-    formPayload.append("access_key", "9eb2b58a-2a15-4f6e-bcb1-9c5d950c0269");
+    formPayload.append("access_key", "629f2234-cbf0-4997-b565-38b0dc0f843e");
     formPayload.append("name", formData.name);
     formPayload.append("email", formData.email);
     formPayload.append("message", formData.message);
@@ -77,8 +87,10 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="relative py-12 mb-4 md:py-24 px-4 overflow-hidden selection:bg-indigo-500/30">
-      
+    <section
+      id="contact"
+      className="relative py-12 mb-4 md:py-24 px-4 overflow-hidden selection:bg-indigo-500/30"
+    >
       {/* Noise Texture */}
       <div className="absolute inset-0   -z-10"></div>
 
@@ -95,18 +107,21 @@ export default function Contact() {
             <Sparkles className="w-3 h-3 md:w-4 md:h-4" />
             <span>Available for freelance</span>
           </div>
-          
+
           <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-4 md:mb-6 tracking-tight">
-            Let's Work <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400">Together</span>
+            Lets Work{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400">
+              Together
+            </span>
           </h2>
           <p className="text-gray-400 text-sm md:text-lg max-w-2xl mx-auto leading-relaxed px-4">
-            Have a project in mind? I'm always open to discussing new projects, creative ideas or opportunities to be part of your visions.
+            Have a project in mind? I am always open to discussing new projects,
+            creative ideas or opportunities to be part of your visions.
           </p>
         </motion.div>
 
         {/* Main Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-start">
-          
           {/* Left Column: Contact Details */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
@@ -116,7 +131,9 @@ export default function Contact() {
             className="flex flex-col gap-4 md:gap-6 order-2 lg:order-1"
           >
             <div className="space-y-2 mb-2 md:mb-4 text-center lg:text-left">
-                <h3 className="text-xl md:text-2xl font-semibold text-white">Contact Details</h3>
+              <h3 className="text-xl md:text-2xl font-semibold text-white">
+                Contact Details
+              </h3>
             </div>
 
             {contactInfo.map((item) => (
@@ -128,7 +145,7 @@ export default function Contact() {
                 <div className="flex-shrink-0 p-3 rounded-xl bg-gradient-to-br from-indigo-500/10 to-purple-500/10 text-indigo-400 group-hover:text-white group-hover:from-indigo-500 group-hover:to-purple-500 transition-all duration-300 border border-white/5">
                   {item.icon}
                 </div>
-                
+
                 {/* Text Content */}
                 <div className="flex-1 min-w-0">
                   <p className="text-xs font-medium text-gray-400 mb-0.5 uppercase tracking-wider">
@@ -164,48 +181,63 @@ export default function Contact() {
             className="relative order-1 lg:order-2 w-full"
           >
             {/* REMOVED: Form Glow div was here */}
-            
+
             {/* Form Container */}
             <div className="relative p-6 md:p-10 rounded-3xl md:rounded-[2rem] bg-zinc-950/80 border border-white/10 backdrop-blur-xl shadow-2xl">
-              <form onSubmit={handleSubmit} className="flex flex-col gap-4 md:gap-6">
-                
+              <form
+                onSubmit={handleSubmit}
+                className="flex flex-col gap-4 md:gap-6"
+              >
                 {/* Name & Email Row */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
-                    <div className="flex flex-col gap-2">
-                        <label htmlFor="name" className="text-sm font-medium text-gray-300 ml-1">
-                            Your Name
-                        </label>
-                        <input
-                            type="text"
-                            id="name"
-                            name="name"
-                            value={formData.name}
-                            onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                            className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-indigo-500 focus:bg-white/10 transition-all duration-300 placeholder:text-gray-600 text-sm md:text-base"
-                            placeholder="John Doe"
-                            required
-                        />
-                    </div>
+                  <div className="flex flex-col gap-2">
+                    <label
+                      htmlFor="name"
+                      className="text-sm font-medium text-gray-300 ml-1"
+                    >
+                      Your Name
+                    </label>
+                    <input
+                      type="text"
+                      id="name"
+                      name="name"
+                      value={formData.name}
+                      onChange={(e) =>
+                        setFormData({ ...formData, name: e.target.value })
+                      }
+                      className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-indigo-500 focus:bg-white/10 transition-all duration-300 placeholder:text-gray-600 text-sm md:text-base"
+                      placeholder="John Doe"
+                      required
+                    />
+                  </div>
 
-                    <div className="flex flex-col gap-2">
-                        <label htmlFor="email" className="text-sm font-medium text-gray-300 ml-1">
-                            Your Email
-                        </label>
-                        <input
-                            type="email"
-                            id="email"
-                            name="email"
-                            value={formData.email}
-                            onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                            className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-indigo-500 focus:bg-white/10 transition-all duration-300 placeholder:text-gray-600 text-sm md:text-base"
-                            placeholder="john@example.com"
-                            required
-                        />
-                    </div>
+                  <div className="flex flex-col gap-2">
+                    <label
+                      htmlFor="email"
+                      className="text-sm font-medium text-gray-300 ml-1"
+                    >
+                      Your Email
+                    </label>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={(e) =>
+                        setFormData({ ...formData, email: e.target.value })
+                      }
+                      className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-indigo-500 focus:bg-white/10 transition-all duration-300 placeholder:text-gray-600 text-sm md:text-base"
+                      placeholder="john@example.com"
+                      required
+                    />
+                  </div>
                 </div>
 
                 <div className="flex flex-col gap-2">
-                  <label htmlFor="message" className="text-sm font-medium text-gray-300 ml-1">
+                  <label
+                    htmlFor="message"
+                    className="text-sm font-medium text-gray-300 ml-1"
+                  >
                     Message
                   </label>
                   <textarea
@@ -213,7 +245,9 @@ export default function Contact() {
                     name="message"
                     rows={5}
                     value={formData.message}
-                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                    onChange={(e) =>
+                      setFormData({ ...formData, message: e.target.value })
+                    }
                     className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-indigo-500 focus:bg-white/10 transition-all duration-300 placeholder:text-gray-600 resize-none text-sm md:text-base"
                     placeholder="Tell me about your project..."
                     required
@@ -226,25 +260,25 @@ export default function Contact() {
                   className="group relative flex items-center justify-center gap-2 md:gap-3 w-full bg-white text-black font-bold py-3 md:py-4 rounded-xl overflow-hidden transition-all active:scale-[0.98] disabled:opacity-70 disabled:cursor-not-allowed hover:shadow-[0_0_20px_rgba(255,255,255,0.3)]"
                 >
                   <div className="absolute inset-0 bg-gradient-to-r from-indigo-100 to-white opacity-0 group-hover:opacity-100 transition-opacity" />
-                  
+
                   <span className="relative flex items-center gap-2 text-sm md:text-base">
                     {isSubmitting ? (
-                        <>
-                            <Loader2 className="w-4 h-4 md:w-5 md:h-5 animate-spin" />
-                            Sending...
-                        </>
+                      <>
+                        <Loader2 className="w-4 h-4 md:w-5 md:h-5 animate-spin" />
+                        Sending...
+                      </>
                     ) : (
-                        <>
-                            Send Message
-                            <Send className="w-3 h-3 md:w-4 md:h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-                        </>
+                      <>
+                        Send Message
+                        <Send className="w-3 h-3 md:w-4 md:h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                      </>
                     )}
                   </span>
                 </button>
 
                 {/* Status Messages */}
                 {submissionStatus === "success" && (
-                  <motion.div 
+                  <motion.div
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     className="p-3 md:p-4 rounded-xl bg-green-500/10 border border-green-500/20 text-green-400 text-xs md:text-sm font-medium text-center flex items-center justify-center gap-2"
@@ -253,7 +287,7 @@ export default function Contact() {
                   </motion.div>
                 )}
                 {submissionStatus === "error" && (
-                  <motion.div 
+                  <motion.div
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     className="p-3 md:p-4 rounded-xl bg-red-500/10 border border-red-500/20 text-red-400 text-xs md:text-sm font-medium text-center"
