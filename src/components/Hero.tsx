@@ -35,24 +35,12 @@ const itemVariants: Variants = {
 const technologies = [
   "TypeScript",
   "Next.js",
-  "React",
+  "kafka",
   "Node.js",
   "NestJS",
-  "Gen AI",
+  "Gen AI","kubernetes"
 ];
 
-const socials = [
-  {
-    label: "GitHub",
-    href: "https://github.com/satyamsingh83840",
-    icon: Github,
-  },
-  {
-    label: "LinkedIn",
-    href: "https://www.linkedin.com/",
-    icon: Linkedin,
-  },
-];
 
 export default function Hero() {
   return (
@@ -144,27 +132,6 @@ export default function Hero() {
               </a>
             </div>
 
-            {/* Social links */}
-            <div className="mt-9 flex items-center gap-4">
-              <span className="text-[10px] uppercase tracking-[0.2em] text-zinc-600">
-                Find me on
-              </span>
-
-              <span className="h-px w-8 bg-zinc-800" />
-
-              {socials.map(({ label, href, icon: Icon }) => (
-                <a
-                  key={label}
-                  href={href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={label}
-                  className="inline-flex h-9 w-9 items-center justify-center border border-zinc-800 text-zinc-400 transition-colors hover:border-[#B8D878]/50 hover:text-[#B8D878]"
-                >
-                  <Icon className="h-4 w-4" />
-                </a>
-              ))}
-            </div>
           </motion.div>
 
           {/* Right: minimal portrait profile */}
@@ -221,7 +188,7 @@ export default function Hero() {
               <div className="flex flex-wrap items-center gap-x-2 gap-y-2 px-4 py-4">
                 {technologies
                   .filter((tech) =>
-                    ["TypeScript", "Next.js", "NestJS", "Gen AI"].includes(tech),
+                    ["TypeScript", "Next.js", "NestJS","kubernetes", "Gen AI"].includes(tech),
                   )
                   .map((tech, index) => (
                     <span
