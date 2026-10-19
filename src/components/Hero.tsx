@@ -180,122 +180,77 @@ export default function Hero() {
           </div>
 
           {/* Right: simplified developer profile */}
-          <motion.div
-            variants={itemVariants}
-            className="order-1 mx-auto w-full max-w-[370px] lg:order-2 lg:ml-auto lg:mr-0"
+    
+{/* Right: minimal portrait profile */}
+<motion.div
+  variants={itemVariants}
+  className="order-1 mx-auto w-full max-w-[340px] lg:order-2 lg:ml-auto lg:mr-0"
+>
+  <motion.div
+    whileHover={{ y: -4 }}
+    transition={{ duration: 0.35, ease: "easeOut" }}
+    className="group relative overflow-hidden border border-zinc-800/80 bg-zinc-950"
+  >
+    {/* Portrait */}
+    <div className="relative aspect-[4/5] overflow-hidden bg-zinc-900">
+      <Image
+        src="/p.png"
+        alt="Satyam Kumar — Full-Stack Engineer"
+        fill
+        priority
+        sizes="(max-width: 640px) 90vw, 340px"
+        className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-[1.035]"
+      />
+
+      {/* Soft, restrained image fade */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black via-black/15 to-transparent"
+      />
+
+      {/* Small availability indicator */}
+      <div className="absolute left-4 top-4 inline-flex items-center gap-2 rounded-full border border-white/10 bg-black/45 px-3 py-1.5 backdrop-blur-sm">
+        <span className="h-1.5 w-1.5 rounded-full bg-[#B8D878]" />
+        <span className="text-[10px] font-medium tracking-wide text-zinc-200">
+          Open to building
+        </span>
+      </div>
+
+      {/* Name and role */}
+      <div className="absolute inset-x-0 bottom-0 p-5 sm:p-6">
+        <p className="mb-2 text-[10px] font-medium uppercase tracking-[0.22em] text-[#B8D878]">
+          Full-Stack · AI · Systems
+        </p>
+
+        <h2 className="text-3xl font-semibold tracking-[-0.055em] text-white sm:text-4xl">
+          Satyam Kumar
+        </h2>
+
+        <p className="mt-2 text-sm text-zinc-300">
+          Engineer building things that scale.
+        </p>
+      </div>
+    </div>
+
+    {/* Minimal skills strip */}
+    <div className="flex flex-wrap items-center gap-x-2 gap-y-2 px-4 py-4">
+      {["TypeScript", "Next.js", "NestJS", "Gen AI"].map(
+        (tech, index) => (
+          <span
+            key={tech}
+            className="text-[11px] text-zinc-400 transition-colors duration-200 hover:text-[#B8D878]"
           >
-            <motion.div
-              whileHover={{ y: -3 }}
-              transition={{ duration: 0.3, ease: "easeOut" }}
-              className="group relative border border-white/[0.14] bg-[#111113]"
-            >
-              {/* Compact top bar */}
-              <div className="flex items-center justify-between border-b border-white/10 px-4 py-3">
-                <div className="flex items-center gap-2.5">
-                  <span className="h-2 w-2 bg-[#B8D878]" />
-                  <span className="text-[10px] font-semibold uppercase tracking-[0.18em] text-zinc-300">
-                    Developer profile
-                  </span>
-                </div>
+            {index > 0 && (
+              <span className="mr-2 text-zinc-700">/</span>
+            )}
+            {tech}
+          </span>
+        ),
+      )}
+    </div>
+  </motion.div>
+</motion.div>
 
-                <span className="font-mono text-[10px] text-zinc-500">
-                  SK—001
-                </span>
-              </div>
-
-              {/* Larger, cleaner portrait */}
-              <div className="relative aspect-[4/4.2] overflow-hidden bg-[#18181B]">
-                <Image
-                  src="/p.png"
-                  alt="Satyam Kumar — Full-Stack Engineer"
-                  fill
-                  priority
-                  sizes="(max-width: 640px) 90vw, (max-width: 1024px) 370px, 370px"
-                  className="object-cover object-center grayscale-[12%] transition duration-700 group-hover:scale-[1.02] group-hover:grayscale-0"
-                />
-
-                {/* Subtle image treatment */}
-                <div
-                  aria-hidden="true"
-                  className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#09090B]/95 via-transparent to-black/10"
-                />
-
-                {/* Minimal availability label */}
-                <div className="absolute left-3 top-3 flex items-center gap-2 border border-white/15 bg-black/55 px-2.5 py-2 backdrop-blur-sm">
-                  <span className="h-1.5 w-1.5 bg-[#B8D878]" />
-                  <span className="font-mono text-[9px] font-medium uppercase tracking-[0.12em] text-zinc-200">
-                    Always building
-                  </span>
-                </div>
-
-                {/* Name over portrait */}
-                <div className="absolute inset-x-0 bottom-0 p-4 sm:p-5">
-                  <p className="mb-2 text-[9px] font-semibold uppercase tracking-[0.2em] text-[#B8D878]">
-                    Code / Systems / AI
-                  </p>
-
-                  <h2 className="text-3xl font-semibold leading-none tracking-[-0.055em] text-white sm:text-[2.1rem]">
-                    Satyam Kumar
-                  </h2>
-
-                  <p className="mt-2 text-xs text-zinc-300">
-                    Full-Stack Engineer
-                  </p>
-                </div>
-              </div>
-
-              {/* Selected technologies */}
-              <div className="p-4 sm:p-5">
-                <div className="mb-3 flex items-center justify-between">
-                  <div>
-                    <p className="text-[10px] font-semibold uppercase tracking-[0.17em] text-zinc-200">
-                      Core stack
-                    </p>
-                    <p className="mt-1 text-[11px] text-zinc-500">
-                      My go-to technologies
-                    </p>
-                  </div>
-
-                  <span className="font-mono text-[10px] text-[#B8D878]">
-                    06 TOOLS
-                  </span>
-                </div>
-
-                <div className="grid grid-cols-2 gap-2">
-                  {technologies.map((tech, index) => (
-                    <div
-                      key={tech}
-                      className="flex min-h-10 items-center gap-2 border border-white/[0.11] bg-white/[0.035] px-2.5 transition-colors duration-200 hover:border-[#B8D878]/40 hover:bg-[#B8D878]/[0.05]"
-                    >
-                      <span className="h-1.5 w-1.5 shrink-0 bg-[#B8D878]/80" />
-                      <span className="text-[11px] font-medium text-zinc-300">
-                        {tech}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Clean footer */}
-              <div className="flex items-center justify-between border-t border-white/10 px-4 py-3">
-                <span className="font-mono text-[9px] uppercase tracking-[0.14em] text-zinc-500">
-                  Portfolio / 2026
-                </span>
-
-                <span className="inline-flex items-center gap-1.5 text-[10px] text-zinc-400">
-                  View projects
-                  <ArrowUpRight className="h-3.5 w-3.5 text-[#B8D878]" />
-                </span>
-              </div>
-            </motion.div>
-
-            {/* Small caption */}
-            <div className="mt-3 flex items-center justify-between text-[9px] uppercase tracking-[0.14em] text-zinc-500">
-              <span>Designed with intent.</span>
-              <span>Built to scale.</span>
-            </div>
-          </motion.div>
-        </motion.div>
 
         {/* Scroll cue */}
         <motion.a
