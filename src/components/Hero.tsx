@@ -1,3 +1,4 @@
+
 "use client";
 
 import { motion, type Variants } from "framer-motion";
@@ -6,9 +7,9 @@ import {
   ArrowDownRight,
   ArrowRight,
   Download,
-  Terminal,
+  Github,
+  Linkedin,
   Sparkles,
-  ArrowUpRight,
 } from "lucide-react";
 
 const containerVariants: Variants = {
@@ -16,8 +17,8 @@ const containerVariants: Variants = {
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.1,
-      delayChildren: 0.12,
+      staggerChildren: 0.12,
+      delayChildren: 0.15,
     },
   },
 };
@@ -27,230 +28,227 @@ const itemVariants: Variants = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: {
-      duration: 0.55,
-      ease: "easeOut",
-    },
+    transition: { duration: 0.65, ease: "easeOut" },
   },
 };
 
 const technologies = [
   "TypeScript",
   "Next.js",
+  "React",
+  "Node.js",
   "NestJS",
-  "PostgreSQL",
-  "Docker",
-  "LangGraph",
+  "Gen AI",
+];
+
+const socials = [
+  {
+    label: "GitHub",
+    href: "https://github.com/satyamsingh83840",
+    icon: Github,
+  },
+  {
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/",
+    icon: Linkedin,
+  },
 ];
 
 export default function Hero() {
   return (
     <section
-      id="about"
-      className="relative isolate flex min-h-screen items-center overflow-hidden bg-[#09090B] pb-16 pt-28 text-zinc-100 selection:bg-[#B8D878]/30 sm:pt-32 lg:pb-12 lg:pt-28"
+      id="home"
+      className="relative isolate overflow-hidden bg-zinc-950 text-white"
     >
-      {/* Subtle editorial grid */}
+      {/* Background accents */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 -z-10 opacity-[0.12]"
-        style={{
-          backgroundImage:
-            "linear-gradient(to right, #71717a 1px, transparent 1px), linear-gradient(to bottom, #71717a 1px, transparent 1px)",
-          backgroundSize: "56px 56px",
-          maskImage: "linear-gradient(to bottom, black, transparent 90%)",
-        }}
-      />
+        className="pointer-events-none absolute inset-0 -z-10 overflow-hidden"
+      >
+        <div className="absolute left-[8%] top-20 h-64 w-64 rounded-full bg-[#B8D878]/[0.055] blur-[110px]" />
+        <div className="absolute bottom-10 right-[10%] h-72 w-72 rounded-full bg-white/[0.025] blur-[120px]" />
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:56px_56px] opacity-30" />
+      </div>
 
-      {/* Muted lime detail */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute right-0 top-24 -z-10 h-72 w-72 bg-[#B8D878]/[0.045] blur-[110px]"
-      />
-
-      <div className="mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-12">
+      <div className="mx-auto max-w-7xl px-5 pb-16 pt-24 sm:px-8 sm:pb-20 sm:pt-28 lg:px-12 lg:pb-24 lg:pt-32">
         <motion.div
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          className="grid items-center gap-12 lg:grid-cols-[1.12fr_0.88fr] lg:gap-16"
+          className="grid items-center gap-12 lg:grid-cols-[minmax(0,1fr)_340px] lg:gap-16 xl:grid-cols-[minmax(0,1fr)_370px] xl:gap-24"
         >
-          {/* Left: introduction — preserved */}
-          <div className="order-2 min-w-0 lg:order-1">
-            <motion.div
-              variants={itemVariants}
-              className="mb-8 flex flex-wrap items-center gap-3"
-            >
-              <span className="h-px w-8 bg-[#B8D878]" />
-              <span className="text-[11px] font-semibold uppercase tracking-[0.24em] text-zinc-400 sm:text-xs">
-                Full-Stack Engineer / Builder
+          {/* Left: introduction */}
+          <motion.div
+            variants={itemVariants}
+            className="order-2 min-w-0 lg:order-1"
+          >
+            <div className="mb-7 inline-flex items-center gap-2.5 border border-zinc-800 bg-zinc-900/70 px-3 py-2">
+              <span className="relative flex h-2 w-2">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#B8D878] opacity-40" />
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-[#B8D878]" />
               </span>
-              <span className="ml-1 inline-flex items-center gap-2 border border-[#B8D878]/20 bg-[#B8D878]/[0.06] px-2.5 py-1 text-[10px] font-medium uppercase tracking-wider text-[#B8D878]">
-                <span className="h-1.5 w-1.5 bg-[#B8D878]" />
-                Building
+              <span className="text-[10px] font-medium uppercase tracking-[0.2em] text-zinc-300 sm:text-[11px]">
+                Available for opportunities
               </span>
-            </motion.div>
+            </div>
 
-            <motion.h1
-              variants={itemVariants}
-              className="max-w-4xl text-[clamp(3.25rem,7.5vw,6.7rem)] font-semibold leading-[0.91] tracking-[-0.075em] text-zinc-100"
-            >
-              I build
-              <br />
-              things that
-              <br />
-              <span className="font-serif font-normal italic text-[#B8D878]">
-                move forward.
-              </span>
-            </motion.h1>
+            <p className="mb-4 text-xs font-medium uppercase tracking-[0.28em] text-[#B8D878] sm:text-sm">
+              Full-Stack Developer · AI Enthusiast
+            </p>
 
-            <motion.div
-              variants={itemVariants}
-              className="mt-7 flex items-start gap-3 sm:mt-9"
-            >
-              <span className="mt-2 h-8 w-[2px] shrink-0 bg-[#B8D878]" />
-              <p className="max-w-xl text-sm leading-7 text-zinc-400 sm:text-base sm:leading-8">
-                I’m{" "}
-                <strong className="font-medium text-zinc-100">
-                  Satyam Kumar
-                </strong>
-                , a TypeScript-focused engineer building scalable web apps,
-                distributed backend systems, and AI-powered products. I work
-                across{" "}
-                <span className="text-zinc-200">Next.js, NestJS, DevOps,</span>{" "}
-                and{" "}
-                <span className="text-zinc-200">
-                  agentic AI, LangGraph, and RAG.
+            <h1 className="max-w-3xl text-5xl font-semibold leading-[0.98] tracking-[-0.065em] sm:text-6xl md:text-7xl xl:text-[88px]">
+              Building digital
+              <br />
+              <span className="text-zinc-500">experiences</span>
+              <br />
+              that matter<span className="text-[#B8D878]">.</span>
+            </h1>
+
+            <p className="mt-7 max-w-xl text-sm leading-7 text-zinc-400 sm:text-base sm:leading-8">
+              I&apos;m Satyam Kumar, a developer focused on building modern
+              web applications, scalable backend systems, and AI-powered
+              products. I enjoy turning complex problems into clean,
+              practical experiences.
+            </p>
+
+            {/* Technologies */}
+            <div className="mt-7 flex flex-wrap gap-2">
+              {technologies.map((tech) => (
+                <span
+                  key={tech}
+                  className="border border-zinc-800 bg-zinc-900/60 px-3 py-1.5 text-[11px] text-zinc-400 transition-colors hover:border-zinc-700 hover:text-[#B8D878]"
+                >
+                  {tech}
                 </span>
-              </p>
-            </motion.div>
+              ))}
+            </div>
 
             {/* Actions */}
-            <motion.div
-              variants={itemVariants}
-              className="mt-9 flex flex-col gap-3 sm:mt-10 sm:flex-row"
-            >
+            <div className="mt-9 flex flex-wrap items-center gap-3">
               <a
                 href="#projects"
-                className="group inline-flex min-h-12 items-center justify-center gap-8 bg-[#B8D878] px-5 py-3 text-sm font-semibold text-[#151710] transition-colors duration-300 hover:bg-[#c9e694] active:scale-[0.98]"
+                className="group inline-flex min-h-11 items-center gap-3 bg-[#B8D878] px-5 py-3 text-sm font-semibold text-zinc-950 transition-colors hover:bg-[#c8e894]"
               >
-                Explore projects
-                <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+                Explore my work
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
               </a>
 
               <a
                 href="/resume.pdf"
-                download
-                className="group inline-flex min-h-12 items-center justify-center gap-3 border border-zinc-800 bg-zinc-950/60 px-5 py-3 text-sm font-medium text-zinc-300 transition-colors duration-300 hover:border-zinc-600 hover:text-white active:scale-[0.98]"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex min-h-11 items-center gap-2 border border-zinc-800 px-5 py-3 text-sm text-zinc-300 transition-colors hover:border-zinc-600 hover:bg-zinc-900"
               >
-                <Download className="h-4 w-4 text-zinc-500 transition-colors group-hover:text-[#B8D878]" />
-                Download resume
-                <ArrowDownRight className="h-4 w-4 text-zinc-600" />
+                <Download className="h-4 w-4" />
+                Resume
               </a>
-            </motion.div>
+            </div>
 
-            {/* Areas of focus */}
-            <motion.div
-              variants={itemVariants}
-              className="mt-10 grid max-w-xl grid-cols-2 border-y border-zinc-800/80 sm:mt-12"
-            >
-              <div className="flex items-center gap-3 py-4 pr-3">
-                <Terminal className="h-4 w-4 shrink-0 text-[#B8D878]" />
-                <div>
-                  <p className="text-xs font-medium text-zinc-200">
-                    Backend systems
-                  </p>
-                  <p className="mt-1 text-[10px] uppercase tracking-wider text-zinc-500">
-                    APIs / Distributed
-                  </p>
-                </div>
-              </div>
+            {/* Social links */}
+            <div className="mt-9 flex items-center gap-4">
+              <span className="text-[10px] uppercase tracking-[0.2em] text-zinc-600">
+                Find me on
+              </span>
 
-              <div className="flex items-center gap-3 border-l border-zinc-800/80 py-4 pl-4">
-                <Sparkles className="h-4 w-4 shrink-0 text-[#B8D878]" />
-                <div>
-                  <p className="text-xs font-medium text-zinc-200">
-                    Generative AI
-                  </p>
-                  <p className="mt-1 text-[10px] uppercase tracking-wider text-zinc-500">
-                    Agents / RAG
-                  </p>
-                </div>
-              </div>
-            </motion.div>
-          </div>
+              <span className="h-px w-8 bg-zinc-800" />
 
-          {/* Right: simplified developer profile */}
-    
-{/* Right: minimal portrait profile */}
-<motion.div
-  variants={itemVariants}
-  className="order-1 mx-auto w-full max-w-[340px] lg:order-2 lg:ml-auto lg:mr-0"
->
-  <motion.div
-    whileHover={{ y: -4 }}
-    transition={{ duration: 0.35, ease: "easeOut" }}
-    className="group relative overflow-hidden border border-zinc-800/80 bg-zinc-950"
-  >
-    {/* Portrait */}
-    <div className="relative aspect-[4/5] overflow-hidden bg-zinc-900">
-      <Image
-        src="/p.png"
-        alt="Satyam Kumar — Full-Stack Engineer"
-        fill
-        priority
-        sizes="(max-width: 640px) 90vw, 340px"
-        className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-[1.035]"
-      />
+              {socials.map(({ label, href, icon: Icon }) => (
+                <a
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={label}
+                  className="inline-flex h-9 w-9 items-center justify-center border border-zinc-800 text-zinc-400 transition-colors hover:border-[#B8D878]/50 hover:text-[#B8D878]"
+                >
+                  <Icon className="h-4 w-4" />
+                </a>
+              ))}
+            </div>
+          </motion.div>
 
-      {/* Soft, restrained image fade */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black via-black/15 to-transparent"
-      />
-
-      {/* Small availability indicator */}
-      <div className="absolute left-4 top-4 inline-flex items-center gap-2 rounded-full border border-white/10 bg-black/45 px-3 py-1.5 backdrop-blur-sm">
-        <span className="h-1.5 w-1.5 rounded-full bg-[#B8D878]" />
-        <span className="text-[10px] font-medium tracking-wide text-zinc-200">
-          Open to building
-        </span>
-      </div>
-
-      {/* Name and role */}
-      <div className="absolute inset-x-0 bottom-0 p-5 sm:p-6">
-        <p className="mb-2 text-[10px] font-medium uppercase tracking-[0.22em] text-[#B8D878]">
-          Full-Stack · AI · Systems
-        </p>
-
-        <h2 className="text-3xl font-semibold tracking-[-0.055em] text-white sm:text-4xl">
-          Satyam Kumar
-        </h2>
-
-        <p className="mt-2 text-sm text-zinc-300">
-          Engineer building things that scale.
-        </p>
-      </div>
-    </div>
-
-    {/* Minimal skills strip */}
-    <div className="flex flex-wrap items-center gap-x-2 gap-y-2 px-4 py-4">
-      {["TypeScript", "Next.js", "NestJS", "Gen AI"].map(
-        (tech, index) => (
-          <span
-            key={tech}
-            className="text-[11px] text-zinc-400 transition-colors duration-200 hover:text-[#B8D878]"
+          {/* Right: minimal portrait profile */}
+          <motion.div
+            variants={itemVariants}
+            className="order-1 mx-auto w-full max-w-[340px] lg:order-2 lg:ml-auto lg:mr-0"
           >
-            {index > 0 && (
-              <span className="mr-2 text-zinc-700">/</span>
-            )}
-            {tech}
-          </span>
-        ),
-      )}
-    </div>
-  </motion.div>
-</motion.div>
+            <motion.div
+              whileHover={{ y: -4 }}
+              transition={{ duration: 0.35, ease: "easeOut" }}
+              className="group relative overflow-hidden border border-zinc-800/80 bg-zinc-950"
+            >
+              {/* Portrait */}
+              <div className="relative aspect-[4/5] overflow-hidden bg-zinc-900">
+                <Image
+                  src="/p.png"
+                  alt="Satyam Kumar — Full-Stack Engineer"
+                  fill
+                  priority
+                  sizes="(max-width: 640px) 90vw, 340px"
+                  className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-[1.035]"
+                />
 
+                <div
+                  aria-hidden="true"
+                  className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black via-black/15 to-transparent"
+                />
+
+                {/* Availability label */}
+                <div className="absolute left-4 top-4 inline-flex items-center gap-2 border border-white/10 bg-black/45 px-3 py-1.5 backdrop-blur-sm">
+                  <span className="h-1.5 w-1.5 rounded-full bg-[#B8D878]" />
+                  <span className="text-[10px] font-medium tracking-wide text-zinc-200">
+                    Open to building
+                  </span>
+                </div>
+
+                {/* Portrait caption */}
+                <div className="absolute inset-x-0 bottom-0 p-5 sm:p-6">
+                  <p className="mb-2 text-[10px] font-medium uppercase tracking-[0.22em] text-[#B8D878]">
+                    Full-Stack · AI · Systems
+                  </p>
+
+                  <h2 className="text-3xl font-semibold tracking-[-0.055em] text-white sm:text-4xl">
+                    Satyam Kumar
+                  </h2>
+
+                  <p className="mt-2 text-sm text-zinc-300">
+                    Engineer building things that scale.
+                  </p>
+                </div>
+              </div>
+
+              {/* Compact technology footer */}
+              <div className="flex flex-wrap items-center gap-x-2 gap-y-2 px-4 py-4">
+                {technologies
+                  .filter((tech) =>
+                    ["TypeScript", "Next.js", "NestJS", "Gen AI"].includes(tech),
+                  )
+                  .map((tech, index) => (
+                    <span
+                      key={tech}
+                      className="text-[11px] text-zinc-400 transition-colors duration-200 hover:text-[#B8D878]"
+                    >
+                      {index > 0 && (
+                        <span className="mr-2 text-zinc-700">/</span>
+                      )}
+                      {tech}
+                    </span>
+                  ))}
+              </div>
+            </motion.div>
+
+            {/* Small detail beneath the card */}
+            <div className="mt-3 flex items-center justify-between border-t border-zinc-800/80 pt-3">
+              <span className="flex items-center gap-2 text-[10px] uppercase tracking-[0.16em] text-zinc-600">
+                <Sparkles className="h-3 w-3 text-[#B8D878]" />
+                Curious by default
+              </span>
+              <span className="font-mono text-[10px] text-zinc-700">
+                IN / 01
+              </span>
+            </div>
+          </motion.div>
+        </motion.div>
 
         {/* Scroll cue */}
         <motion.a
